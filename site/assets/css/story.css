@@ -1,0 +1,91 @@
+/* ============================================================
+   TANKZ — Story page
+   Editorial brand narrative. Light canvas, one dark mission band.
+   ============================================================ */
+
+/* Inner-page header offset (no hero to sit under) */
+.page { padding-top: 0; }
+
+/* ---------- Story hero (editorial split) ---------- */
+.story-hero { padding-block: clamp(3rem, 7vw, 7rem) 0; overflow: hidden; }
+.story-hero .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 5.5rem); align-items: center; }
+.story-hero__text .eyebrow { margin-bottom: 1.8rem; }
+.story-hero__title { font-size: clamp(2.6rem, 6.4vw, 5.6rem); margin-bottom: 1.8rem; }
+.story-hero__title em { font-style: italic; transform: skewX(-7deg); display: inline-block; color: var(--grey-light); }
+.story-hero__lead { font-size: var(--fs-lead); color: var(--slate); max-width: 46ch; line-height: 1.55; }
+.story-hero__media { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--off-white); }
+.story-hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.story-hero__caption { margin-top: 0.9rem; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); }
+
+/* ---------- Narrative ---------- */
+.story-narrative { }
+.story-narrative .wrap { display: grid; grid-template-columns: 0.4fr 0.6fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.story-narrative__label { position: sticky; top: calc(var(--header-h) + 2rem); }
+.story-narrative__label .section-index { display: block; margin-bottom: 0.8rem; }
+.story-narrative__label h2 { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-h3); line-height: 1; }
+.story-prose p { font-size: clamp(1.1rem, 1.6vw, 1.45rem); line-height: 1.6; color: var(--charcoal); margin-bottom: 1.5rem; max-width: 54ch; }
+.story-prose p:last-child { margin-bottom: 0; }
+.story-prose .drop { font-family: var(--font-display); }
+.story-prose strong { font-weight: 400; color: var(--ink); }
+
+/* ---------- Pull quote ---------- */
+.story-pull { background: var(--bone); }
+.story-pull .wrap { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.story-pull__q { font-family: var(--font-display); text-transform: uppercase; line-height: 1.02; letter-spacing: -0.005em; font-size: clamp(2rem, 5.2vw, 4.2rem); max-width: 20ch; }
+.story-pull__q .muted { color: var(--grey-light); }
+.story-pull__by { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); }
+
+/* ---------- Values ---------- */
+.values { display: grid; gap: clamp(3rem, 6vw, 6rem); }
+.value-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 4.5rem); align-items: center; }
+.value-row:nth-child(even) .value-row__media { order: 2; }
+.value-row__media { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--off-white); }
+.value-row__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-soft); }
+.value-row:hover .value-row__media img { transform: scale(1.04); }
+.value-row__n { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4rem); color: var(--grey-light); line-height: 1; display: block; margin-bottom: 1rem; }
+.value-row__t { font-family: var(--font-display); text-transform: uppercase; font-size: var(--fs-h2); line-height: 0.98; margin-bottom: 1.3rem; }
+.value-row__d { color: var(--slate); font-size: var(--fs-lead); line-height: 1.55; max-width: 42ch; }
+
+/* ---------- Mission (dark band) ---------- */
+.mission { background: var(--ink-deep); color: var(--paper); text-align: center; }
+.mission .wrap { display: flex; flex-direction: column; align-items: center; gap: 2.2rem; }
+.mission__mark { width: 60px; height: 46px; color: var(--paper); opacity: 0.9; }
+.mission__eyebrow { color: var(--grey); }
+.mission__q { font-family: var(--font-display); text-transform: uppercase; line-height: 1.04; letter-spacing: -0.005em; font-size: clamp(1.7rem, 4vw, 3.4rem); max-width: 24ch; }
+.mission__q em { font-style: italic; transform: skewX(-7deg); display: inline-block; color: var(--grey-light); }
+
+/* ---------- Brandmark meaning ---------- */
+.mark { background: var(--bone); }
+.mark__head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.6rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.mark__logo { width: 92px; height: 70px; color: var(--ink); }
+.mark__head h2 { font-size: var(--fs-h2); max-width: 18ch; }
+.mark__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.6rem, 3vw, 3rem); border-top: 1px solid var(--line); padding-top: clamp(2rem, 4vw, 3rem); }
+.mark__col h3 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.4rem; margin-bottom: 0.9rem; }
+.mark__col p { color: var(--slate); font-size: 0.98rem; line-height: 1.55; }
+.mark__col .num { font-size: 0.72rem; letter-spacing: 0.18em; color: var(--grey); display: block; margin-bottom: 1rem; }
+
+/* ---------- Closing CTA (full-bleed) ---------- */
+.story-cta { position: relative; min-height: min(70vh, 680px); display: flex; align-items: center; color: var(--paper); overflow: hidden; }
+.story-cta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; z-index: -2; }
+.story-cta::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,8,8,0.6), rgba(8,8,8,0.1) 70%); z-index: -1; }
+.story-cta__inner { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); width: 100%; }
+.story-cta h2 { font-size: var(--fs-h1); max-width: 14ch; margin-bottom: 1.6rem; }
+.story-cta h2 em { font-style: italic; transform: skewX(-7deg); display: inline-block; color: var(--grey-light); }
+.story-cta p { max-width: 40ch; color: rgba(255,255,255,0.85); margin-bottom: 2.2rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .story-hero .wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .story-hero__media { order: -1; aspect-ratio: 3/4; }
+  .story-narrative .wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+  .story-narrative__label { position: static; }
+  .value-row { grid-template-columns: 1fr; gap: 1.5rem; }
+  .value-row:nth-child(even) .value-row__media { order: -1; }
+  .value-row__media { order: -1; aspect-ratio: 3/4; }
+  .mark__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .mark__col { border-top: 1px solid var(--line); padding-top: 1.6rem; }
+  .mark__grid { border-top: none; padding-top: 0; }
+}
+@media (max-width: 560px) {
+  .story-cta { min-height: 60vh; }
+}

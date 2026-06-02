@@ -1,0 +1,22 @@
+# OS / system
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Local tooling / editor
+.claude/
+.vscode/
+
+# Internal working docs — kept local, not published to the website repo
+TANKZ Website Design Brief.md
+PRODUCT.md
+DESIGN.md
+
+# Client-confidential & third-party reference materials — do NOT publish
+Tankz Brand Guidelines.pdf
+Competitor Website Inspiration/
+Creative Direction to Avoid/
+Inspirational Images/
+Product Pages/
+Website Add-ons/
