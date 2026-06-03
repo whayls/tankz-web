@@ -82,3 +82,21 @@
   .shop-head__row { align-items: flex-start; }
   .toolbar-btn span.label-extra { display: none; }
 }
+
+/* ---------- Gender toggle + toolbar layout ---------- */
+.shop-toolbar__bar { flex-wrap: wrap; row-gap: 0.8rem; }
+.toolbar-left { display: flex; align-items: center; gap: clamp(0.8rem, 1.6vw, 1.5rem); flex-wrap: wrap; }
+.gender-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.gender-btn {
+  font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  padding: 0.62rem 1.15rem; color: var(--slate); background: var(--paper);
+  border-right: 1px solid var(--line);
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+.gender-btn:last-child { border-right: 0; }
+.gender-btn:hover { color: var(--ink); }
+.gender-btn.is-active { background: var(--ink); color: var(--paper); }
+@media (max-width: 560px) {
+  .gender-btn { padding: 0.55rem 0.9rem; font-size: 0.68rem; }
+  .toolbar-left { gap: 0.7rem; width: 100%; justify-content: space-between; }
+}

@@ -24,7 +24,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav-left" aria-label="Primary">
-      <a class="nav-link" href="shop.html" aria-current="page">Shop</a>
+      <a class="nav-link" href="shop.html?gender=men">Men</a>
+      <a class="nav-link" href="shop.html?gender=women">Women</a>
       <a class="nav-link" href="story.html">Story</a>
       <a class="nav-link" href="contact.html">Contact</a>
     </nav>
@@ -54,17 +55,24 @@
       <h1 class="display">All Tanks</h1>
       <p class="shop-head__lead">Three cuts, cut from the same premium standard. Core neutrals in constant rotation, limited colours in small seasonal drops.</p>
     </div>
-    <span class="shop-head__count">12 Products</span>
+    <span class="shop-head__count">20 Products</span>
   </div>
 </section>
 
 <!-- ===================== TOOLBAR ===================== -->
 <div class="shop-toolbar">
   <div class="wrap shop-toolbar__bar">
-    <button class="toolbar-btn" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel">
+    <div class="toolbar-left">
+      <div class="gender-toggle" role="group" aria-label="Shop by gender">
+        <button class="gender-btn is-active" data-gender="all" aria-pressed="true">All</button>
+        <button class="gender-btn" data-gender="men" aria-pressed="false">Men</button>
+        <button class="gender-btn" data-gender="women" aria-pressed="false">Women</button>
+      </div>
+      <button class="toolbar-btn" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
       Filter <span class="label-extra">&amp; Refine</span>
-    </button>
+      </button>
+    </div>
     <label class="toolbar-sort">Sort
       <select aria-label="Sort products">
         <option>Featured</option><option>Newest</option><option>Best Selling</option>
@@ -111,113 +119,113 @@
 <!-- ===================== PRODUCT GRID ===================== -->
 <section class="wrap shop-grid" aria-label="Products">
   <div class="product-grid reveal-stagger">
-
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Black"></a>
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Black, Men's"></a>
       <div class="product-card__media">
         <span class="product-tag product-tag--ink">Best Seller</span>
-        <img src="assets/img/product-black.jpg" alt="The Everyday Tank in black on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/product-black.jpg" alt="The Everyday Tank in black on a man, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Everyday</span>
+        <span class="product-card__cat">Men's &middot; The Everyday</span>
         <div class="product-card__row"><span class="product-card__name">Everyday Tank — Black</span><span class="product-card__price">$58</span></div>
-        <div class="swatches" aria-label="6 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#b8a88f"></span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in White"></a>
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Black, Women's"></a>
+      <div class="product-card__media">
+        <span class="product-tag product-tag--ink">Best Seller</span>
+        <img src="assets/img/w-everyday-black.jpg" alt="The Everyday Tank in black on a woman, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Women's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Black</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in White, Men's"></a>
       <div class="product-card__media">
         <span class="product-tag">Core</span>
-        <img src="assets/img/product-white.jpg" alt="The Everyday Tank in off-white on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/product-white.jpg" alt="The Everyday Tank in white on a man, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Everyday</span>
+        <span class="product-card__cat">Men's &middot; The Everyday</span>
         <div class="product-card__row"><span class="product-card__name">Everyday Tank — White</span><span class="product-card__price">$58</span></div>
-        <div class="swatches" aria-label="6 colours"><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#b8a88f"></span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Heather Grey"></a>
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in White, Women's"></a>
       <div class="product-card__media">
-        <img src="assets/img/product-grey.jpg" alt="The Everyday Tank in heather grey on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/w-everyday-white.jpg" alt="The Everyday Tank in white on a woman, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Everyday</span>
-        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Heather</span><span class="product-card__price">$58</span></div>
-        <div class="swatches" aria-label="6 colours"><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#b8a88f"></span></div>
+        <span class="product-card__cat">Women's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — White</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Charcoal"></a>
-      <div class="product-card__media">
-        <img src="assets/img/shop-everyday-charcoal.jpg" alt="The Everyday Tank in charcoal grey on a neutral studio backdrop." loading="lazy" />
-        <button class="product-quickadd" type="button">Quick Add</button>
-      </div>
-      <div class="product-card__body">
-        <span class="product-card__cat">The Everyday</span>
-        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Charcoal</span><span class="product-card__price">$58</span></div>
-        <div class="swatches" aria-label="6 colours"><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#b8a88f"></span></div>
-      </div>
-    </article>
-
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Dusty Navy"></a>
-      <div class="product-card__media">
-        <span class="product-tag product-tag--ink">New</span>
-        <img src="assets/img/product-navy.jpg" alt="The Everyday Tank in muted dusty navy on a neutral studio backdrop." loading="lazy" />
-        <button class="product-quickadd" type="button">Quick Add</button>
-      </div>
-      <div class="product-card__body">
-        <span class="product-card__cat">The Everyday · Limited</span>
-        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Dusty Navy</span><span class="product-card__price">$58</span></div>
-        <div class="swatches" aria-label="6 colours"><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#b8a88f"></span></div>
-      </div>
-    </article>
-
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Sand"></a>
-      <div class="product-card__media">
-        <span class="product-tag">Limited</span>
-        <img src="assets/img/shop-everyday-sand.jpg" alt="The Everyday Tank in warm sand on a neutral studio backdrop." loading="lazy" />
-        <button class="product-quickadd" type="button">Quick Add</button>
-      </div>
-      <div class="product-card__body">
-        <span class="product-card__cat">The Everyday · Limited</span>
-        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Sand</span><span class="product-card__price">$58</span></div>
-        <div class="swatches" aria-label="6 colours"><span class="swatch-dot" style="background:#b8a88f"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#2f3a4a"></span></div>
-      </div>
-    </article>
-
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Black"></a>
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Black, Men's"></a>
       <div class="product-card__media">
         <span class="product-tag product-tag--ink">Best Seller</span>
-        <img src="assets/img/shop-perf-black.jpg" alt="The Performance Tank in black on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/shop-perf-black.jpg" alt="The Performance Tank in black on a man, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Performance</span>
+        <span class="product-card__cat">Men's &middot; The Performance</span>
         <div class="product-card__row"><span class="product-card__name">Performance Tank — Black</span><span class="product-card__price">$62</span></div>
         <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#6f7c86"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Heather"></a>
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Black, Women's"></a>
       <div class="product-card__media">
-        <img src="assets/img/shop-perf-grey.jpg" alt="The Performance Tank in heather grey on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/w-perf-black.jpg" alt="The Performance Tank in black on a woman, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Performance</span>
-        <div class="product-card__row"><span class="product-card__name">Performance Tank — Heather</span><span class="product-card__price">$62</span></div>
-        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#6f7c86"></span></div>
+        <span class="product-card__cat">Women's &middot; The Performance</span>
+        <div class="product-card__row"><span class="product-card__name">Performance Tank — Black</span><span class="product-card__price">$62</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#6f7c86"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Black, Men's"></a>
+      <div class="product-card__media">
+        <span class="product-tag product-tag--ink">Best Seller</span>
+        <img src="assets/img/shop-out-black.jpg" alt="The Out Tank in black on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Out</span>
+        <div class="product-card__row"><span class="product-card__name">Out Tank — Black</span><span class="product-card__price">$68</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#e8e2d6"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Black, Women's"></a>
+      <div class="product-card__media">
+        <span class="product-tag product-tag--ink">Best Seller</span>
+        <img src="assets/img/w-out-black.jpg" alt="The Out Tank in black on a woman, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Women's &middot; The Out</span>
+        <div class="product-card__row"><span class="product-card__name">Out Tank — Black</span><span class="product-card__price">$68</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#e8e2d6"></span></div>
       </div>
     </article>
 
@@ -231,67 +239,172 @@
       </div>
     </aside>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Slate Blue"></a>
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Heather, Men's"></a>
       <div class="product-card__media">
-        <span class="product-tag">Limited</span>
-        <img src="assets/img/shop-perf-slate.jpg" alt="The Performance Tank in slate blue on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/product-grey.jpg" alt="The Everyday Tank in heather on a man, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Performance · Limited</span>
-        <div class="product-card__row"><span class="product-card__name">Performance Tank — Slate</span><span class="product-card__price">$62</span></div>
-        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#6f7c86"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span></div>
+        <span class="product-card__cat">Men's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Heather</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#2c2c2c"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Black"></a>
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Heather, Women's"></a>
       <div class="product-card__media">
-        <span class="product-tag product-tag--ink">Best Seller</span>
-        <img src="assets/img/shop-out-black.jpg" alt="The Out Tank in black with a subtle sheen on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/w-everyday-grey.jpg" alt="The Everyday Tank in heather on a woman, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Out</span>
-        <div class="product-card__row"><span class="product-card__name">Out Tank — Black</span><span class="product-card__price">$68</span></div>
-        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#e8e2d6"></span></div>
+        <span class="product-card__cat">Women's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Heather</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#2c2c2c"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Dusty Navy"></a>
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Charcoal, Men's"></a>
       <div class="product-card__media">
-        <span class="product-tag">Limited</span>
-        <img src="assets/img/shop-out-navy.jpg" alt="The Out Tank in dusty navy with a subtle sheen on a neutral studio backdrop." loading="lazy" />
+        <img src="assets/img/shop-everyday-charcoal.jpg" alt="The Everyday Tank in charcoal on a man, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Out · Limited</span>
+        <span class="product-card__cat">Men's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Charcoal</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#2c2c2c"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Dusty Navy, Men's"></a>
+      <div class="product-card__media">
+        <span class="product-tag product-tag--ink">New</span>
+        <img src="assets/img/product-navy.jpg" alt="The Everyday Tank in dusty navy on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Dusty Navy</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Heather, Men's"></a>
+      <div class="product-card__media">
+        <img src="assets/img/shop-perf-grey.jpg" alt="The Performance Tank in heather on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Performance</span>
+        <div class="product-card__row"><span class="product-card__name">Performance Tank — Heather</span><span class="product-card__price">$62</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#6f7c86"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Heather, Women's"></a>
+      <div class="product-card__media">
+        <img src="assets/img/w-perf-grey.jpg" alt="The Performance Tank in heather on a woman, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Women's &middot; The Performance</span>
+        <div class="product-card__row"><span class="product-card__name">Performance Tank — Heather</span><span class="product-card__price">$62</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#9a9a9a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#6f7c86"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Dusty Navy, Men's"></a>
+      <div class="product-card__media">
+        <span class="product-tag">Limited</span>
+        <img src="assets/img/shop-out-navy.jpg" alt="The Out Tank in dusty navy on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Out</span>
         <div class="product-card__row"><span class="product-card__name">Out Tank — Dusty Navy</span><span class="product-card__price">$68</span></div>
         <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#e8e2d6"></span></div>
       </div>
     </article>
 
-    <article class="product-card">
-      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Bone"></a>
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Dusty Navy, Women's"></a>
       <div class="product-card__media">
-        <img src="assets/img/shop-out-bone.jpg" alt="The Out Tank in bone off-white with a subtle sheen on a neutral studio backdrop." loading="lazy" />
+        <span class="product-tag">Limited</span>
+        <img src="assets/img/w-out-navy.jpg" alt="The Out Tank in dusty navy on a woman, neutral studio backdrop." loading="lazy" />
         <button class="product-quickadd" type="button">Quick Add</button>
       </div>
       <div class="product-card__body">
-        <span class="product-card__cat">The Out</span>
+        <span class="product-card__cat">Women's &middot; The Out</span>
+        <div class="product-card__row"><span class="product-card__name">Out Tank — Dusty Navy</span><span class="product-card__price">$68</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#2f3a4a"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#e8e2d6"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Everyday Tank in Sand, Men's"></a>
+      <div class="product-card__media">
+        <span class="product-tag">Limited</span>
+        <img src="assets/img/shop-everyday-sand.jpg" alt="The Everyday Tank in sand on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Everyday</span>
+        <div class="product-card__row"><span class="product-card__name">Everyday Tank — Sand</span><span class="product-card__price">$58</span></div>
+        <div class="swatches" aria-label="4 colours"><span class="swatch-dot" style="background:#b8a88f"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#ededed"></span><span class="swatch-dot" style="background:#9a9a9a"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Performance Tank in Slate, Men's"></a>
+      <div class="product-card__media">
+        <span class="product-tag">Limited</span>
+        <img src="assets/img/shop-perf-slate.jpg" alt="The Performance Tank in slate on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Performance</span>
+        <div class="product-card__row"><span class="product-card__name">Performance Tank — Slate</span><span class="product-card__price">$62</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#6f7c86"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#9a9a9a"></span></div>
+      </div>
+    </article>
+
+    <article class="product-card" data-gender="men">
+      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Bone, Men's"></a>
+      <div class="product-card__media">
+        <img src="assets/img/shop-out-bone.jpg" alt="The Out Tank in bone on a man, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Men's &middot; The Out</span>
         <div class="product-card__row"><span class="product-card__name">Out Tank — Bone</span><span class="product-card__price">$68</span></div>
         <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#e8e2d6"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#2f3a4a"></span></div>
       </div>
     </article>
 
+    <article class="product-card" data-gender="women">
+      <a class="product-card__link" href="pdp.html" aria-label="The Out Tank in Bone, Women's"></a>
+      <div class="product-card__media">
+        <img src="assets/img/w-out-bone.jpg" alt="The Out Tank in bone on a woman, neutral studio backdrop." loading="lazy" />
+        <button class="product-quickadd" type="button">Quick Add</button>
+      </div>
+      <div class="product-card__body">
+        <span class="product-card__cat">Women's &middot; The Out</span>
+        <div class="product-card__row"><span class="product-card__name">Out Tank — Bone</span><span class="product-card__price">$68</span></div>
+        <div class="swatches" aria-label="3 colours"><span class="swatch-dot" style="background:#e8e2d6"></span><span class="swatch-dot" style="background:#141414"></span><span class="swatch-dot" style="background:#2f3a4a"></span></div>
+      </div>
+    </article>
   </div>
 
   <div class="load-more">
-    <span class="load-more__meta">Showing 12 of 12</span>
+    <span class="load-more__meta">Showing 8 of 20</span>
     <div class="load-more__track" aria-hidden="true"></div>
-    <button class="btn btn--outline" type="button">Load More</button>
+    <button class="btn btn--outline" type="button" id="load-more-btn">Load More</button>
   </div>
 </section>
 
@@ -361,7 +474,8 @@
     <button class="icon-btn" id="close-menu" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="mobile-nav">
-    <a href="shop.html">Shop <span aria-hidden="true">→</span></a>
+    <a href="shop.html?gender=men">Men <span aria-hidden="true">→</span></a>
+    <a href="shop.html?gender=women">Women <span aria-hidden="true">→</span></a>
     <a href="story.html">Story <span aria-hidden="true">→</span></a>
     <a href="contact.html">Contact <span aria-hidden="true">→</span></a>
   </div>

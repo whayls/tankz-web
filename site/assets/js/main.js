@@ -89,6 +89,41 @@
     });
   }
 
+  /* ---------- Cart (shared by PDP add + quick add) ---------- */
+  var cartItems = [];
+  function parsePrice(s) { var m = (s || "").replace(/[^0-9.]/g, ""); return parseFloat(m) || 0; }
+  function money(n) { return "$" + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
+  function esc(s) { return (s || "").replace(/[<>&"]/g, ""); }
+
+  function renderCart() {
+    var totalQty = cartItems.reduce(function (s, i) { return s + i.qty; }, 0);
+    var subtotal = cartItems.reduce(function (s, i) { return s + i.price * i.qty; }, 0);
+    $$(".cart-count").forEach(function (c) { c.textContent = totalQty; });
+    var drawerBody = document.querySelector("#cart-drawer .drawer-body");
+    var checkout = document.querySelector("#cart-drawer .drawer-foot .btn");
+    if (!drawerBody || !cartItems.length) return;
+    var rows = cartItems.map(function (i) {
+      return '<div class="cart-line">' +
+        '<span class="cart-line__media"><img src="' + i.img + '" alt=""></span>' +
+        '<div class="cart-line__info">' +
+          '<span class="cart-line__name">' + esc(i.name) + '</span>' +
+          (i.meta ? '<span class="cart-line__meta">' + esc(i.meta) + '</span>' : '') +
+          '<span class="cart-line__meta">Qty ' + i.qty + '</span>' +
+        '</div>' +
+        '<span class="cart-line__price">' + money(i.price * i.qty) + '</span>' +
+      '</div>';
+    }).join("");
+    drawerBody.innerHTML = rows + '<p class="cart-note">Complimentary shipping unlocked. Taxes calculated at checkout.</p>';
+    if (checkout) { checkout.removeAttribute("disabled"); checkout.textContent = "Checkout · " + money(subtotal); }
+  }
+
+  function addToCart(item) {
+    var match = cartItems.filter(function (i) { return i.name === item.name && i.meta === item.meta; })[0];
+    if (match) match.qty += item.qty; else cartItems.push(item);
+    renderCart();
+    open(cart);
+  }
+
   /* ---------- PDP: gallery thumbnails ---------- */
   var mainImg = document.getElementById("pdp-main-img");
   if (mainImg) {
@@ -124,7 +159,7 @@
     on("qty-inc", "click", function () { qty.textContent = Math.min(9, (parseInt(qty.textContent, 10) || 1) + 1); });
   }
 
-  /* ---------- Accordions (PDP details) ---------- */
+  /* ---------- Accordions (PDP details + contact FAQ) ---------- */
   $$(".acc-trigger").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var item = btn.closest(".acc-item");
@@ -138,33 +173,38 @@
   if (addBtn) {
     addBtn.addEventListener("click", function () {
       var n = parseInt(qty ? qty.textContent : "1", 10) || 1;
-      var name = addBtn.getAttribute("data-name") || "Tank";
-      var price = addBtn.getAttribute("data-price") || "";
-      var img = addBtn.getAttribute("data-img") || "";
       var color = (document.getElementById("sel-color") || {}).textContent || "";
       var size = (document.getElementById("sel-size") || {}).textContent || "";
-      $$(".cart-count").forEach(function (c) { c.textContent = n; c.style.display = "grid"; });
-      var bodyEl = document.querySelector("#cart-drawer .drawer-body");
-      if (bodyEl) {
-        bodyEl.innerHTML =
-          '<div class="cart-line">' +
-            '<span class="cart-line__media"><img src="' + img + '" alt=""></span>' +
-            '<div class="cart-line__info">' +
-              '<span class="cart-line__name">' + name + '</span>' +
-              '<span class="cart-line__meta">' + color + (size ? ' &middot; Size ' + size : '') + '</span>' +
-              '<span class="cart-line__meta">Qty ' + n + '</span>' +
-            '</div>' +
-            '<span class="cart-line__price">' + price + '</span>' +
-          '</div>' +
-          '<p class="cart-note">Complimentary shipping unlocked. Taxes calculated at checkout.</p>';
-      }
-      var checkout = document.querySelector("#cart-drawer .drawer-foot .btn");
-      if (checkout) { checkout.removeAttribute("disabled"); checkout.textContent = "Checkout · " + price; }
-      open(cart);
+      addToCart({
+        name: addBtn.getAttribute("data-name") || "Tank",
+        price: parsePrice(addBtn.getAttribute("data-price")),
+        img: addBtn.getAttribute("data-img") || "",
+        meta: color + (size ? " · Size " + size : ""),
+        qty: n
+      });
     });
   }
 
-  /* ---------- Shop: filter chips + sort (prototype-level) ---------- */
+  /* ---------- Quick add (product cards on home + shop) ---------- */
+  $$(".product-quickadd").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var c = btn.closest(".product-card");
+      if (!c) return;
+      var name = ((c.querySelector(".product-card__name") || {}).textContent || "Tank").trim();
+      var price = parsePrice((c.querySelector(".product-card__price") || {}).textContent);
+      var imgEl = c.querySelector(".product-card__media img");
+      var img = imgEl ? imgEl.getAttribute("src") : "";
+      var parts = name.split("—");
+      var meta = (parts.length > 1 ? parts[1].trim() + " · " : "") + "Size M";
+      addToCart({ name: name, price: price, img: img, meta: meta, qty: 1 });
+      var orig = btn.textContent;
+      btn.textContent = "Added ✓";
+      setTimeout(function () { btn.textContent = orig; }, 1200);
+    });
+  });
+
+  /* ---------- Shop: filter panel toggle + style chips (visual) ---------- */
   on("filter-toggle", "click", function () {
     var panel = document.getElementById("filter-panel");
     var t = document.getElementById("filter-toggle");
@@ -180,19 +220,77 @@
     });
   });
 
+  /* ---------- Shop: gender filter + pagination ---------- */
+  var grid = document.querySelector(".product-grid");
+  if (grid) {
+    var PAGE = 8;
+    var productCards = $$(".product-card", grid);
+    var feature = grid.querySelector(".grid-feature");
+    var genderBtns = $$(".gender-btn");
+    var loadWrap = document.querySelector(".load-more");
+    var loadBtn = document.getElementById("load-more-btn");
+    var metaEl = document.querySelector(".load-more__meta");
+    var countEl = document.querySelector(".shop-head__count");
+    var heading = document.querySelector(".shop-head h1");
+    var gender = "all", shown = PAGE;
+
+    function matched() {
+      return productCards.filter(function (c) {
+        return gender === "all" || c.getAttribute("data-gender") === gender;
+      });
+    }
+    function render() {
+      var list = matched();
+      productCards.forEach(function (c) { c.style.display = "none"; });
+      list.slice(0, shown).forEach(function (c) { c.style.display = ""; });
+      if (feature) feature.style.display = (gender === "all") ? "" : "none";
+      var total = list.length, visible = Math.min(shown, total);
+      if (metaEl) metaEl.textContent = "Showing " + visible + " of " + total;
+      if (countEl) countEl.textContent = total + (total === 1 ? " Product" : " Products");
+      if (loadWrap) loadWrap.style.display = (visible < total) ? "" : "none";
+    }
+    function setGender(g, updateUrl) {
+      gender = (g === "men" || g === "women") ? g : "all";
+      shown = PAGE;
+      genderBtns.forEach(function (b) {
+        var act = b.getAttribute("data-gender") === gender;
+        b.classList.toggle("is-active", act);
+        b.setAttribute("aria-pressed", act ? "true" : "false");
+      });
+      if (heading) heading.textContent = gender === "men" ? "Men’s Tanks" : gender === "women" ? "Women’s Tanks" : "All Tanks";
+      $$(".nav-link").forEach(function (a) {
+        var href = a.getAttribute("href") || "";
+        if (gender !== "all" && href.indexOf("gender=" + gender) > -1) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+      if (updateUrl) {
+        var u = gender === "all" ? location.pathname : location.pathname + "?gender=" + gender;
+        try { history.replaceState(null, "", u); } catch (err) {}
+      }
+      render();
+    }
+    genderBtns.forEach(function (b) {
+      b.addEventListener("click", function () { setGender(b.getAttribute("data-gender"), true); });
+    });
+    if (loadBtn) loadBtn.addEventListener("click", function () { shown += PAGE; render(); });
+    var g0 = null;
+    try { g0 = new URLSearchParams(location.search).get("gender"); } catch (e) {}
+    setGender(g0, false);
+  }
+
   /* ---------- Contact form (contact page only) ---------- */
   var cform = document.getElementById("contact-form");
   if (cform) {
     cform.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = document.getElementById("cf-name");
-      var email = document.getElementById("cf-email");
+      var email2 = document.getElementById("cf-email");
       var message = document.getElementById("cf-msg");
       var status = document.getElementById("cf-status");
-      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((email.value || "").trim());
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((email2.value || "").trim());
       if (!name.value.trim() || !emailOk || !message.value.trim()) {
         if (status) status.textContent = "Please add your name, a valid email, and a message.";
-        (!name.value.trim() ? name : (!emailOk ? email : message)).focus();
+        (!name.value.trim() ? name : (!emailOk ? email2 : message)).focus();
         return;
       }
       var safeName = name.value.trim().replace(/[<>&"]/g, "");
