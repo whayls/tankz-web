@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — TANKZ</title>
+<meta name="description" content="Questions about fit, an order, wholesale, or press? Get in touch with the TANKZ team. We reply within one business day." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/contact.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Announcement -->
+<div class="announce" role="status">
+  <span>Complimentary shipping on orders over $120 &nbsp;·&nbsp; Launching the first drop this summer</span>
+</div>
+
+<!-- Header -->
+<header class="site-header is-solid" id="header" data-solid="always">
+  <div class="wrap header-inner">
+    <button class="icon-btn hamburger" id="open-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-left" aria-label="Primary">
+      <a class="nav-link" href="shop.html">Shop</a>
+      <a class="nav-link" href="story.html">Story</a>
+      <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <a class="logo" href="index.html" aria-label="TANKZ home">
+      <svg class="logo-mark" viewBox="0 0 44 34" aria-hidden="true" fill="currentColor">
+        <path d="M14 0 H30 L24 10 H8 Z" /><path d="M20 12 H36 L30 22 H14 Z" /><path d="M26 24 H42 L36 34 H20 Z" />
+      </svg>
+      <span class="logo-word">Tankz<span class="logo-tm">™</span></span>
+    </a>
+    <div class="nav-right">
+      <button class="icon-btn nav-util" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="icon-btn nav-util" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg></button>
+      <button class="icon-btn cart-btn" id="open-cart" aria-label="Cart, 0 items">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page">
+
+<!-- ===================== CONTACT HERO ===================== -->
+<section class="contact-hero">
+  <div class="wrap contact-hero__grid">
+    <div class="contact-hero__text reveal">
+      <p class="eyebrow">Contact</p>
+      <h1 class="display contact-hero__title">Get In <em>Touch</em></h1>
+      <p class="contact-hero__lead">Questions about fit, an order, a collaboration, or just want to say hey? We read every message and reply within one business day.</p>
+      <div class="contact-hero__quick">
+        <a href="#contact-faq">Read the FAQ</a>
+        <a href="shop.html">Shop the tanks</a>
+      </div>
+    </div>
+    <div class="contact-hero__media reveal">
+      <img src="assets/img/life-lounge.jpg" alt="A man relaxing in an oatmeal tank in a warm, minimal interior." />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FORM + DETAILS ===================== -->
+<section class="section contact-main">
+  <div class="wrap contact-grid">
+
+    <!-- Form -->
+    <div class="contact-form-wrap reveal">
+      <h2 class="contact-col-h"><span class="section-index">01 — Send A Message</span></h2>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="cf-row">
+          <div class="cf-field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="cf-field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="cf-topic">What's it about?</label>
+          <div class="cf-select">
+            <select id="cf-topic" name="topic">
+              <option>General enquiry</option>
+              <option>Order &amp; shipping</option>
+              <option>Returns &amp; exchanges</option>
+              <option>Sizing &amp; fit</option>
+              <option>Wholesale &amp; partnerships</option>
+              <option>Press &amp; media</option>
+            </select>
+            <span class="cf-select__ico" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" rows="6" required></textarea>
+        </div>
+        <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
+        <button class="btn btn--ink cf-submit" type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Details -->
+    <aside class="contact-aside reveal">
+      <div class="contact-block">
+        <span class="section-index">02 — Reach Us Directly</span>
+      </div>
+      <div class="contact-block">
+        <h3 class="contact-block__h">Customer Care</h3>
+        <p class="contact-block__p">Orders, sizing, returns, and everything day-to-day.</p>
+        <a class="contact-link" href="mailto:hello@tankz.com">hello@tankz.com</a>
+      </div>
+      <div class="contact-block">
+        <h3 class="contact-block__h">Wholesale &amp; Press</h3>
+        <p class="contact-block__p">Stockist enquiries, collaborations, and media requests.</p>
+        <a class="contact-link" href="mailto:partners@tankz.com">partners@tankz.com</a>
+      </div>
+      <div class="contact-block">
+        <h3 class="contact-block__h">Hours</h3>
+        <p class="contact-block__p">Monday to Friday, 9–5 PT.<br />We reply within one business day.</p>
+      </div>
+      <div class="contact-block">
+        <h3 class="contact-block__h">Follow</h3>
+        <div class="contact-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.1 1.6 3.7 3.7 4v2.4c-1.4 0-2.7-.4-3.7-1.1V15a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1v2.5a3 3 0 1 0 2.1 2.9V3H16Z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 9.5v5l4-2.5-4-2.5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section contact-faq" id="contact-faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-head__title">
+        <span class="section-index">03 — Quick Answers</span>
+        <h2 class="display">Before You<br>Reach Out</h2>
+      </div>
+      <p>The questions we get most. Still stuck? The form above reaches a real person.</p>
+    </div>
+    <div class="acc reveal">
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">When does TANKZ launch? <span class="acc-ico" aria-hidden="true"></span></button>
+        <div class="acc-panel"><div class="acc-panel__in"><p>The first drop lands this summer. Join the list from any page footer and you'll be first to know, with early access to limited colours.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">How do I find my size? <span class="acc-ico" aria-hidden="true"></span></button>
+        <div class="acc-panel"><div class="acc-panel__in"><p>Every tank is cut true to size for a relaxed slim fit. If you're between sizes or want help, message us with your height, weight, and how you like things to fit and we'll point you to the right one.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">What's your shipping &amp; returns policy? <span class="acc-ico" aria-hidden="true"></span></button>
+        <div class="acc-panel"><div class="acc-panel__in"><p>Shipping is complimentary on orders over $120. Unworn pieces can be returned or exchanged within 30 days of delivery. Reach out and we'll set it up for you.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">Do you offer wholesale? <span class="acc-ico" aria-hidden="true"></span></button>
+        <div class="acc-panel"><div class="acc-panel__in"><p>Yes. For stockist enquiries and partnerships, email <a href="mailto:partners@tankz.com">partners@tankz.com</a> with a little about your store and we'll take it from there.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="index.html" aria-label="TANKZ home" style="color:#fff">
+          <svg class="logo-mark" viewBox="0 0 44 34" aria-hidden="true" fill="currentColor"><path d="M14 0 H30 L24 10 H8 Z"/><path d="M20 12 H36 L30 22 H14 Z"/><path d="M26 24 H42 L36 34 H20 Z"/></svg>
+          <span class="logo-word">Tankz<span class="logo-tm">™</span></span>
+        </a>
+        <p>A uniform for confidence, comfort, and showing up as yourself, wherever you are.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">The Everyday</a><a href="shop.html">The Performance</a><a href="shop.html">The Out</a><a href="shop.html">Shop All</a><a href="shop.html">Limited Drops</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#">Fit Finder</a><a href="#">Size Guide</a><a href="#">Shipping &amp; Returns</a><a href="#">FAQ</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Brand</h4>
+        <a href="story.html">Our Story</a><a href="index.html#fabric">Fabric &amp; Fit</a><a href="#">Journal</a><a href="#">Sustainability</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tankz™. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.1 1.6 3.7 3.7 4v2.4c-1.4 0-2.7-.4-3.7-1.1V15a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1v2.5a3 3 0 1 0 2.1 2.9V3H16Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 9.5v5l4-2.5-4-2.5Z" fill="currentColor"/></svg></a>
+      </div>
+      <div class="footer-pay" aria-label="Accepted payments"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAY</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== OVERLAYS ===================== -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button class="icon-btn" id="close-cart" aria-label="Close cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="drawer-body">
+    <div class="cart-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+      <div>
+        <p style="font-weight:500;color:var(--ink)">Your cart is empty</p>
+        <p style="font-size:0.9rem;margin-top:0.3rem">Every rotation starts with one.</p>
+      </div>
+      <a class="btn btn--outline" href="shop.html" id="cart-shop">Shop Tanks</a>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn btn--ink" style="width:100%" disabled>Checkout</button>
+  </div>
+</aside>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" aria-hidden="true">
+  <div class="mobile-menu__head">
+    <span class="logo-word" style="font-size:1.7rem">Tankz<span class="logo-tm">™</span></span>
+    <button class="icon-btn" id="close-menu" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="mobile-nav">
+    <a href="shop.html">Shop <span aria-hidden="true">→</span></a>
+    <a href="story.html">Story <span aria-hidden="true">→</span></a>
+    <a href="contact.html">Contact <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="mobile-foot">
+    <a href="#">Account</a><a href="#">Fit Finder</a><a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

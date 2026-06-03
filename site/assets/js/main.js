@@ -179,4 +179,25 @@
       chip.setAttribute("aria-pressed", chip.classList.contains("is-on") ? "true" : "false");
     });
   });
+
+  /* ---------- Contact form (contact page only) ---------- */
+  var cform = document.getElementById("contact-form");
+  if (cform) {
+    cform.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("cf-name");
+      var email = document.getElementById("cf-email");
+      var message = document.getElementById("cf-msg");
+      var status = document.getElementById("cf-status");
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((email.value || "").trim());
+      if (!name.value.trim() || !emailOk || !message.value.trim()) {
+        if (status) status.textContent = "Please add your name, a valid email, and a message.";
+        (!name.value.trim() ? name : (!emailOk ? email : message)).focus();
+        return;
+      }
+      var safeName = name.value.trim().replace(/[<>&"]/g, "");
+      cform.innerHTML = '<div class="cf-success"><h2>Message sent.</h2><p>Thanks for reaching out, ' +
+        safeName + '. We’ll get back to you within one business day.</p></div>';
+    });
+  }
 })();
